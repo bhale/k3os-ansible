@@ -1,0 +1,11 @@
+- name: Upgrade K3OS
+  hosts: all
+  become: true
+  gather_facts: no
+  tasks:
+  - name: Upgrade rootfs
+    raw: k3os-upgrade-rootfs
+  - name: Upgrade kernel
+    raw: k3os-upgrade-kernel
+  - name: Reboot
+    raw: reboot
